@@ -1,0 +1,149 @@
+expt 10
+const express = require('express');
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
+
+const app = express();
+
+app.use(cookieParser());
+app.use(session({secret: "top secret"}));
+
+app.get('/', function(req, res){
+   if(req.session.page_views){
+      req.session.page_views++;
+      res.send("<h1>You visited this page " + req.session.page_views + " times</h1>");
+   } else {
+      req.session.page_views = 1;
+      res.send("<h1>Welcome to this page for the first time!</h1>");
+   }
+});
+app.listen(3000);
+
+
+
+create folder
+create file.js
+in terminal:npm init
+            enterr...yes
+            npm i express
+            npm express-session
+            npm i cookie-parser
+            node index(tab)
+(localhost:3000)   
+
+
+
+expt 9
+         
+onst express = require('express')
+const app = express()
+const router = express.Router()
+
+
+router.get('/info',(req,res) =>{
+    res.send("I am Inevitable!!")
+});
+app.use('/api',router);
+
+app.listen(8080,() => {
+    console.log('listening to port 8080');
+});   
+      
+create folder
+create file.js
+in terminal:npm init
+            enterr...yes
+            npm i express
+            node index(tab)
+(localhost:8080/api/info)
+
+
+expt 8 
+
+1]npm init -y
+2]npm i react react-dom
+npm i -D @babel/core @babel/preset-env @babel/preset-react babel-loader css-loader html-webpack-plugin sass sass-loader style-loader url-loader webpack webpack-cli webpack-dev-server
+3]Create .babelrc file
+4]create webpack.config.js file
+5]create src folder and inside this folder create App.js,App.scss,index.html,index.js
+import React from "react";
+const App = () => {
+  return(
+   <>
+     <div>
+        <h1>
+            we created react-app using wbpack
+        </h1>
+
+   expt 7
+
+props:
+app.js
+import './App.css';
+import Navbar from './Components/navbar';
+import Cart from './Components/Cart';
+const items =
+        {id: 1, name: "Black Forest" , Price:350 , Qty: 5 }
+function App() {
+  return (
+    <>
+     
+      <Cart prop = {items}/>
+       
+       
+    </>
+  );
+}
+
+export default App;
+
+cart.js
+import React, { useState } from "react";
+
+function Cart({ prop }) {
+   
+    return (
+       <>
+       <div><h1>Name: {prop.name}</h1></div>
+       <div><h1>Price: {prop.Price}</h1></div>
+       <div><h1>Quantity: {prop.Qty}</h1></div>
+       
+       </>
+    );
+}
+export default Cart;
+
+
+state:
+import React from "react";
+class Car extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        brand: "Ford",
+        model: "Mustang",
+        color: "red",
+        year: 1964
+      };
+    }
+    render() {
+      return (
+        <div>
+          <h1>My {this.state.brand}</h1>
+          <p>
+            It is a {this.state.color}
+            {this.state.model}
+            from {this.state.year}.
+          </p>
+        </div>
+      );
+    }
+  }
+  export default Car;
+
+ 
+expt6:
+
+npx create-react-app my-react-app
+cd my-react-app
+npm start
